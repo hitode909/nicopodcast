@@ -212,7 +212,7 @@ class Crawler
         key = in_item.link.scan(/(sm\d+)/).first.to_s
         unless @file_sizes[key][@output_file_type]
           puts "skip #{key}"
-          puts "skip #{@video_titles[video_id]}"
+          puts "skip #{@video_titles[key]}"
           next
         end
         
