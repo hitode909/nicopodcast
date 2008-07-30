@@ -6,8 +6,13 @@ require 'nicovideo'
 require 'yaml'
 
 class Crawler
+  attr_writer :input_feed_url, output_feed_path, output_file_path, output_file_url
+  
   def initialize
     collect_input_data
+  end
+
+  def run
     setup_input_data
     get_input_files
     sync_file_sizes

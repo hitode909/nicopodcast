@@ -39,4 +39,4 @@ class MyCrawler < Crawler
   end
 end
 
-MyCrawler.new
+MyCrawler.new.run
