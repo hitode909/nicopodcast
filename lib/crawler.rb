@@ -6,7 +6,7 @@ require 'nicovideo'
 require 'yaml'
 
 class Crawler
-  attr_writer :input_feed_url, output_feed_path, output_file_path, output_file_url
+  attr_writer :input_feed_url, :output_feed_path, :output_file_path, :output_file_url
   
   def initialize
     collect_input_data
