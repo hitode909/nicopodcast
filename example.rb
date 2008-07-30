@@ -39,4 +39,5 @@ class MyCrawler < Crawler
   end
 end
 
+# newで設定を読んでrunで実行
 MyCrawler.new.run
