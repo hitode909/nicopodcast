@@ -210,7 +210,6 @@ class Crawler
       @input_feed.items.each do |in_item|
         key = in_item.link.scan(/(sm\d+)/).first.to_s
         unless @file_sizes[key][@output_file_type]
-          puts "skip #{@in_item.title}"
           next
         end
         
