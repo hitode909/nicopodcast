@@ -1,0 +1,31 @@
+* nicopodcast
+
+** 概要
+ニコニコ動画の公開リストをPodcastにする
+
+** 必要なソフトウェアなど
+- ruby
+- apache(ローカルで使う場合はなくてもいい)
+- ffmpeg
+- wget
+- Gemでいろいろ
+-- ppricot
+-- mechanize
+-- nicovideo
+
+** 使い方
+- ファイルをどっかに置く
+- account.yamlを書く
+- lib/crawler.rb を継承して適当にクラスを作る(例：trunk/example.rb)
+- 実行するとローカルにフィードと動画や音楽が落ちてくる
+- フィードをiTunesに登録
+
+** Crawlerクラスの継承について
+- def collect_input_data に各種設定を、
+- def hook_publish_feed にフィードを読みやすいに整形する処理を書く
+- それ以外は特に変更しなくても動く
+- example.rbを参考に
+
+** TODO
+- マイリスト以外の入力に対応
+- 古い動画を削除
