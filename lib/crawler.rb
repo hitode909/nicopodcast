@@ -170,9 +170,10 @@ class Crawler
       puts "encoding #{video_id}"
       input_path = output_file_fullpath(video_id,@input_file_type)
       output_path = output_file_fullpath(video_id,@output_file_type)
-      return "ffmpeg -i #{input_path} #{@ffmpeg_option} #{output_path}"
+      system "ffmpeg -i #{input_path} #{@ffmpeg_option} #{output_path}"
       puts "...done"
     end
+    return
   end
 
   def delete_no_need_files
@@ -184,7 +185,7 @@ class Crawler
       puts "no need to delete"
       return
     end
-    puts "delete: keys.join(', ')"
+    puts "delete: #{keys.join(', ')}"
     keys.each do |key|
       path = output_file_fullpath(key,@input_file_type)
       puts "deleting #{path}"
@@ -210,6 +211,8 @@ class Crawler
       @input_feed.items.each do |in_item|
         key = in_item.link.scan(/(sm\d+)/).first.to_s
         unless @file_sizes[key][@output_file_type]
+          puts "skip #{key}"
+          puts "skip #{@video_titles[video_id]}"
           next
         end
         
