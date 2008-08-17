@@ -252,7 +252,7 @@ class Crawler
       maker.items.do_sort = true
 
       @input_feed.items.each do |in_item|
-        key = in_item.link.scan(/(sm\d+)/).first.to_s
+        key = in_item.link.scan(/(\w\w\d+)/).first.to_s
         unless @file_sizes[key][@output_file_type]
           puts "skip #{key}"
           puts "skip #{@video_titles[key]}"
