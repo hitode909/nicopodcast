@@ -240,7 +240,7 @@ class Crawler
   def generate_feed
     puts "generating feed"
     @output_feed = RSS::Maker.make("2.0") do |maker|
-      maker.channel.description = @input_feed.channel.description
+      maker.channel.description = @input_feed.channel.title
       maker.channel.generator = @input_feed.channel.generator
       maker.channel.language = @input_feed.channel.language
       maker.channel.lastBuildDate = @input_feed.channel.lastBuildDate
