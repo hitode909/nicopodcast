@@ -171,6 +171,10 @@ class Crawler
 
         begin
           File.open(filepath, "wb") {|f| f.write v.flv }
+        rescue Timeout::Error => e
+          sleep 3
+          puts "timeout error, retry"
+          retry
         rescue => err
           p err
           puts "deleting file"
