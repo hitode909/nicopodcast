@@ -7,7 +7,6 @@
 - ruby
 - apache(ローカルで使う場合はなくてもいい)
 - ffmpeg
-- wget
 - Gemでいろいろ
 -- hpricot
 -- mechanize

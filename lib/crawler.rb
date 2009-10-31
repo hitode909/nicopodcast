@@ -72,10 +72,8 @@ class Crawler
   # フィードをwgetで取ってくる
   def download_feed
     puts "downloading feed(#{@input_feed_url})"
-    tmpfile = "/tmp/nicopodcast#{@input_feed_url.scan(/\d+/).first}"
-    system "wget -nv -O #{tmpfile} #{@input_feed_url}"
-    rss = RSS::Parser.parse(tmpfile)
-    File.delete(tmpfile)
+    uri = URI.parse(@input_feed_url)
+    rss = RSS::Parser.parse(uri)
     return rss
   end
 
